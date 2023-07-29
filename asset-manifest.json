@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-moives/static/css/main.012bc79c.css",
+    "main.js": "/react-moives/static/js/main.b2dc990a.js",
+    "static/js/787.8fd4e038.chunk.js": "/react-moives/static/js/787.8fd4e038.chunk.js",
+    "index.html": "/react-moives/index.html",
+    "main.012bc79c.css.map": "/react-moives/static/css/main.012bc79c.css.map",
+    "main.b2dc990a.js.map": "/react-moives/static/js/main.b2dc990a.js.map",
+    "787.8fd4e038.chunk.js.map": "/react-moives/static/js/787.8fd4e038.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.012bc79c.css",
+    "static/js/main.b2dc990a.js"
+  ]
+}
