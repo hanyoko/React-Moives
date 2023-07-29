@@ -1,5 +1,5 @@
 {
-  "name": "react-for-beginners",
+  "name": "react-moives",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -40,5 +40,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://hanyoko.github.io/레포지터리 이름"
+  "homepage": "https://hanyoko.github.io/React-Moives"
 }

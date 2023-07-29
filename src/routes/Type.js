@@ -1,28 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect , useState} from "react";
 import{
-  Link,
-}from "react-router-dom";
+    Link,
+  }from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Movie from "../components/Movie";
-function Home(){
+function Type(){
+    const {genre} = useParams();
     const [loading, setLoading] = useState(true);
-    const [movies, setMovies] = useState([]);
-    const getMovies = async () =>{ 
-    const response = await fetch(
-      `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=rating`
-    );
-    const json = await response.json();
-    setMovies(json.data.movies);
-    console.log(json);
-    setLoading(false);
-    };
-  
+    const [movie, setMovie] = useState([]);
+    console.log(genre);
+    const getMovie = async() =>{
+        const json = await(
+            await fetch(`https://yts.mx/api/v2/list_movies.json?genre=${genre}&sort_by=rating`)).json();
+            setMovie(json.data.movies);
+            setLoading(false);
+    }
+
     useEffect(()=>{
-      getMovies();
-    },[]);
+        getMovie();
+    });
 
     return <div>
-      {loading ? <h1 id="loading">Loading...</h1> : <div id="movie_list">
-        <header id="h1"> <span>Movie</span> 
+       {loading? <h1 id="loading">Loading...</h1> : <div id="movie_list">
+        <header id="type_header"><Link to="/"><span id="home">Home</span></Link>
         <nav>
           <ul id="menu">
             <Link to={`/page/Romance`}><li id="li"><span>Romance</span></li></Link>
@@ -33,7 +33,8 @@ function Home(){
           </ul>
         </nav>
         </header>
-      {movies.map((movie) => <div id="movie">
+        <h3 id="genre">{genre}</h3>
+       {movie.map((movie) => <div id="movie">
         <Movie 
         key={movie.id}
         id={movie.id}
@@ -44,12 +45,9 @@ function Home(){
         rating = {movie.rating}
         /> </div>
       )}
-      </div>}
-  
-    </div>;
+       </div>
+        }
+    </div>
 }
 
-
-  
-
-export default Home;
+export default Type;
